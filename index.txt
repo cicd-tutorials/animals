@@ -1,4 +1,4 @@
-build_hello, I'm a build_name! build_emoji
+build_emoji build_hello! I'm a build_name.
 
 Hostname: nginx_hostname
 Address:  nginx_address
