@@ -62,6 +62,7 @@ jobs:
         path: animals-${{ matrix.args.name }}.tar.gz
   upload-files-to-release:
     name: Upload build results to release
+    needs: build-and-push
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
