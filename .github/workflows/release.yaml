@@ -67,14 +67,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Unstash logs
+    - name: Unstash archive
       uses: actions/download-artifact@v3
       with:
         path: release/
     - name: Upload archive to release
       uses: svenstaro/upload-release-action@v2
       with:
-        file: release/animals-*.tar.gz
+        file: release/*/animals-*.tar.gz
         file_glob: true
     - name: Upload nginx configuration to release
       uses: svenstaro/upload-release-action@v2
