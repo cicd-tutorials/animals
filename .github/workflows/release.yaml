@@ -39,7 +39,7 @@ jobs:
     - name: Build and push container image to GitHub Container Registry
       run: |
         docker build . --tag animals \
-          --build-arg "VERSION_NOTE=at ${GITHUB_SHA}" \
+          --build-arg "VERSION_NOTE=at ${{ github.ref_name }}" \
           --build-arg "EMOJI=${{ matrix.args.emoji }}" \
           --build-arg "HELLO=${{ matrix.args.hello }}" \
           --build-arg "NAME=${{ matrix.args.name }}"
@@ -50,6 +50,11 @@ jobs:
         done
     - name: Build archive
       run: bash -xe ./.ci/build-index-files.sh
+      env:
+        VERSION_NOTE: "at ${{ github.ref_name }}"
+        EMOJI: "${{ matrix.args.emoji }}"
+        HELLO: "${{ matrix.args.hello }}"
+        NAME: "${{ matrix.args.name }}"
     - name: Upload archive to release
       uses: svenstaro/upload-release-action@v2
       with:
