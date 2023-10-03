@@ -1,5 +1,7 @@
 # Animals
 
+[![Release](https://github.com/kangasta/animals/actions/workflows/release.yaml/badge.svg)](https://github.com/kangasta/animals/actions/workflows/release.yaml)
+
 Simple containers for testing and demonstrating (rolling) updates. Based on [UpCloudLtd / hello-container](https://github.com/UpCloudLtd/hello-container.git).
 
 ## Usage
