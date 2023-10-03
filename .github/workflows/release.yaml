@@ -55,10 +55,26 @@ jobs:
         EMOJI: "${{ matrix.args.emoji }}"
         HELLO: "${{ matrix.args.hello }}"
         NAME: "${{ matrix.args.name }}"
+    - name: Stash archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: animals-${{ matrix.args.name }}
+        path: animals-${{ matrix.args.name }}.tar.gz
+  upload-files-to-release:
+    name: Upload build results to release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Unstash logs
+      uses: actions/download-artifact@v3
+      with:
+        path: release/
     - name: Upload archive to release
       uses: svenstaro/upload-release-action@v2
       with:
-        file: animals-${{ matrix.args.name }}.tar.gz
+        file: release/animals-*.tar.gz
+        file_glob: true
     - name: Upload nginx configuration to release
       uses: svenstaro/upload-release-action@v2
       with:
