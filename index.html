@@ -1,0 +1,188 @@
+<html lang="en">
+  <head>
+    <title>build_hello!</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>build_emoji</text></svg>"
+    />
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: SourceSans3;
+        src: url("SourceSans3.ttf");
+      }
+
+      :root {
+        --blue: #88f;
+        --black: #222226;
+        --white: #ebe9e5;
+      }
+
+      body {
+        background: var(--black);
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        font-family: "Source Sans Pro", sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        padding: 0 2em;
+      }
+
+      header {
+        text-transform: uppercase;
+        padding: 25px 20px;
+      }
+
+      main {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .content {
+        margin: auto;
+        max-width: 640px;
+      }
+
+      .header {
+        align-items: center;
+        display: flex;
+        gap: 1em;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      table {
+        background: var(--white);
+        border-collapse: collapse;
+        border-radius: 2.75px;
+        border-style: hidden;
+        color: var(--black);
+        margin: 1em 0;
+        width: 100%;
+      }
+
+      tr {
+        border: solid 1px var(--black);
+      }
+
+      th,
+      td {
+        padding: 15px 30px;
+        text-align: left;
+      }
+
+      th {
+        font-weight: 700;
+      }
+
+      footer {
+        font-size: 1rem;
+        margin-top: 4em;
+        padding: 1em;
+        text-align: center;
+      }
+
+      .highlight {
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        margin: 2em 0;
+        row-gap: 1em;
+      }
+
+      .emoji {
+        font-size: 2.75em;
+        line-height: 1em;
+        margin: 0.125em 0;
+        width: auto;
+      }
+
+      .intro-container {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .intro-row {
+        background: var(--white);
+        border-radius: 2.75px;
+        color: var(--black);
+        line-height: 1.25em;
+        margin: 0.125em;
+        padding: 0 0.25em;
+      }
+
+      a {
+        color: var(--blue);
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: var(--blue);
+      }
+
+      a:hover,
+      a:focus {
+        outline: none;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="content header">
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 3 2 A 1 1 0 0 0 3 4 A 1 1 0 0 0 3 2 M 3 4 L 3 10 A 3 3 0 0 0 6 13 L 10 13 M 8 11 L 10 13 L 8 15 M 13 12 A 1 1 0 0 0 13 14 A 1 1 0 0 0 13 12 M 13 12 L 13 6 A 3 3 0 0 0 10 3 L 6 3 M 8 1 L 6 3 L 8 5"
+            stroke="currentColor"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+        <h1>Animals</h1>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <div class="highlight">
+          <span aria-hidden="true" class="emoji">build_emoji</span>
+          <div class="intro-container">
+            <span class="intro-row">build_hello!</span>
+            <span class="intro-row">I'm a build_name.</span>
+          </div>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <th>Hostname:</th>
+              <td>nginx_hostname</td>
+            </tr>
+            <tr>
+              <th>Address:</th>
+              <td>nginx_address</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <footer>
+      <a target="_blank" href="https://github.com/kangasta/animals.git"
+        >kangasta / animals</a
+      >
+      build_version_note
+    </footer>
+  </body>
+</html>

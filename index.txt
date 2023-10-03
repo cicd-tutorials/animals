@@ -1,0 +1,6 @@
+build_hello, I'm a build_name! build_emoji
+
+Hostname: nginx_hostname
+Address:  nginx_address
+
+kangasta / animals build_version_note

@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build-and-push:
+    name: Build and push container image (${{ matrix.args.name }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        args:
+        - emoji: 🐮
+          hello: Moo
+          name: cow
+        - emoji: 🦁
+          hello: Roar
+          name: lion
+        - emoji: 🐱
+          hello: Meow
+          name: cat
+        - emoji: 🐶
+          hello: Woof
+          name: dog
+        - emoji: 🐷
+          hello: Oink
+          name: pig
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Build and push container image to GitHub Container Registry
+      run: |
+        docker build . --tag animals \
+          --build-arg "VERSION_NOTE=at ${GITHUB_SHA}" \
+          --build-arg "EMOJI=${{ matrix.args.emoji }}" \
+          --build-arg "HELLO=${{ matrix.args.hello }}" \
+          --build-arg "NAME=${{ matrix.args.name }}"
+
+        for tag in ${{ matrix.args.name }}-${{ github.run_number }} ${{ matrix.args.name }}; do
+          docker tag animals ghcr.io/kangasta/animals:$tag
+          docker push ghcr.io/kangasta/animals:$tag
+        done

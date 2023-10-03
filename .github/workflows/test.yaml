@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  validate-txt:
+    name: Validate txt response
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Build container and validate txt response
+      run: ./.ci/build-container-and-validate-txt-response.sh
