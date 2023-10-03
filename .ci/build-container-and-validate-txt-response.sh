@@ -8,7 +8,7 @@ for i in $(seq 1 5); do
 done
 
 grep -q "^Hostname: hello-test$" out.txt
-grep -q "^Moo, I'm a cow! 🐮$" out.txt
+grep -q "^🐮 Moo! I'm a cow.$" out.txt
 grep -q "^kangasta / animals at not-a-co$" out.txt
 
 docker rm -f ${container_id}
