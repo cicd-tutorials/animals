@@ -12,3 +12,8 @@ grep -q "^🐮 Moo! I'm a cow.$" out.txt
 grep -q "^kangasta / animals at not-a-co$" out.txt
 
 docker rm -f ${container_id}
+
+EMOJI=🦁 HELLO=Moo NAME=horse bash -xe ./.ci/build-index-files.sh
+
+grep -q "^🦁 Moo! I'm a horse.$" out/index.txt
+grep -q "^kangasta / animals $" out/index.txt

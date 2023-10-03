@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    branches:
-    - main
+    tags:
+    - "v*"
 
 jobs:
   build-and-push:
@@ -44,7 +44,17 @@ jobs:
           --build-arg "HELLO=${{ matrix.args.hello }}" \
           --build-arg "NAME=${{ matrix.args.name }}"
 
-        for tag in ${{ matrix.args.name }}-${{ github.run_number }} ${{ matrix.args.name }}; do
+        for tag in ${{ matrix.args.name }}-${{ github.ref_name }} ${{ matrix.args.name }}; do
           docker tag animals ghcr.io/kangasta/animals:$tag
           docker push ghcr.io/kangasta/animals:$tag
         done
+    - name: Build archive
+      run: bash -xe ./.ci/build-index-files.sh
+    - name: Upload archive to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: animals-${{ matrix.args.name }}.tar.gz
+    - name: Upload nginx configuration to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: index.conf
