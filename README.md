@@ -1,15 +1,15 @@
 # Animals
 
-[![Release](https://github.com/kangasta/animals/actions/workflows/release.yaml/badge.svg)](https://github.com/kangasta/animals/actions/workflows/release.yaml)
+[![Release](https://github.com/cicd-tutorials/animals/actions/workflows/release.yaml/badge.svg)](https://github.com/cicd-tutorials/animals/actions/workflows/release.yaml)
 
-Simple containers for testing and demonstrating (rolling) updates. Based on [UpCloudLtd / hello-container](https://github.com/UpCloudLtd/hello-container.git).
+Simple containers for testing and demonstrating (rolling) updates. Based on [UpCloudLtd / hello-container](https://github.com/UpCloudLtd/hello-container.git). Uses the same [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) styling as [cicd-tutorials.net](https://cicd-tutorials.net/).
 
 ## Usage
 
 To create a deployment and expose it from your Kubernetes cluster, run:
 
 ```sh
-kubectl create deployment --image=ghcr.io/kangasta/animals:cow moo
+kubectl create deployment --image=ghcr.io/cicd-tutorials/animals:cow moo
 kubectl expose deployment moo --port=80 --target-port=80 --type=LoadBalancer
 kubectl get svc -w
 ```

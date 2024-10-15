@@ -3,4 +3,4 @@ build_emoji build_hello! I'm a build_name.
 Hostname: nginx_hostname
 Address:  nginx_address
 
-kangasta / animals build_version_note
+cicd-tutorials / animals build_version_note
