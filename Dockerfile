@@ -1,4 +1,4 @@
-FROM alpine:latest as build
+FROM alpine:latest AS build
 
 # Should be set to "at $COMMIT_SHA"
 ARG VERSION_NOTE=""

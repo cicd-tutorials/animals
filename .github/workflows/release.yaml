@@ -45,8 +45,8 @@ jobs:
           --build-arg "NAME=${{ matrix.args.name }}"
 
         for tag in ${{ matrix.args.name }}-${{ github.ref_name }} ${{ matrix.args.name }}; do
-          docker tag animals ghcr.io/kangasta/animals:$tag
-          docker push ghcr.io/kangasta/animals:$tag
+          docker tag animals ghcr.io/$GITHUB_REPOSITORY:$tag
+          docker push ghcr.io/$GITHUB_REPOSITORY:$tag
         done
     - name: Build archive
       run: bash -xe ./.ci/build-index-files.sh
